@@ -27,6 +27,7 @@
 
 /** 结论2 ：除了完全二叉树采用顺序存储的方式尚可 其他的使用顺序存储都会造成内存浪费 */
 #include <iostream>
+#include <queue>
 using namespace std;
 
 struct Node {
@@ -71,4 +72,26 @@ void PostorderTraversal(Node *tree)
     PostorderTraversal(tree->right);
     int value = tree->val;          // access the node every third time
 
+}
+
+void LevelOrderTraversal(Node *tree)
+{
+    if (tree == nullptr) {
+        return;
+    }
+    queue<Node *> myQueue;
+    myQueue.push(tree);
+    while (!myQueue.empty()) {
+        size_t size = myQueue.size();
+        for (int i = 0; i < size; ++i) {
+            Node *innerNode = myQueue.front();
+            myQueue.pop();
+            if (innerNode->left != nullptr) {
+                myQueue.push(innerNode->left);
+            }
+            if (innerNode->right != nullptr) {
+                myQueue.push(innerNode->right);
+            }
+        }
+    }
 }
