@@ -44,7 +44,7 @@ void PreorderTraversal(Node *tree)
         return;
     }
 
-    int value = tree->val;          // access the node every time
+    int value = tree->val;          // access the node every time 前序遍历
     PreorderTraversal(tree->left);
     PreorderTraversal(tree->right);
 
@@ -57,7 +57,7 @@ void InorderTraversal(Node *tree)
     }
 
     InorderTraversal(tree->left);
-    int value = tree->val;          // access the node every second time
+    int value = tree->val;          // access the node every second time 中序遍历
     InorderTraversal(tree->right);
 
 }
@@ -70,7 +70,7 @@ void PostorderTraversal(Node *tree)
 
     PostorderTraversal(tree->left);
     PostorderTraversal(tree->right);
-    int value = tree->val;          // access the node every third time
+    int value = tree->val;          // access the node every third time 后序遍历
 
 }
 
